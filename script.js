@@ -3,15 +3,14 @@ class CSTITest {
     constructor() {
         this.currentQuestion = 0;
         this.scores = {
-            C: 0, // Combat: 枪法刚猛
-            S: 0, // Survival: 老六阴人  
-            T: 0, // Teamwork: 孤狼独狼
-            B: 0, // Teamwork: 团队混子
-            F: 0, // Survival: 白给送头
-            A: 0, // Survival: 苟活保命
-            L: 0, // Teamwork: 孤狼
-            M: 0, // Intellect: 战术大脑
-            D: 0  // Intellect: 无脑冲锋
+            C: 0, // 枪法刚猛
+            S: 0, // 老六阴人
+            F: 0, // 白给送头
+            A: 0, // 苟活保命
+            L: 0, // 孤狼独狼
+            B: 0, // 团队混子
+            M: 0, // 战术大脑
+            D: 0  // 无脑冲锋
         };
         this.answers = [];
         this.init();
@@ -50,7 +49,7 @@ class CSTITest {
     }
 
     resetScores() {
-        this.scores = { C: 0, S: 0, T: 0, B: 0, F: 0, A: 0, L: 0, M: 0, D: 0 };
+        this.scores = { C: 0, S: 0, F: 0, A: 0, L: 0, B: 0, M: 0, D: 0 };
         this.answers = [];
     }
 
@@ -99,27 +98,27 @@ class CSTITest {
 
     calculateResult() {
         // 计算四个维度的结果
-        // C维度: C(枪法刚猛) vs S(老六阴人)
-        const cDimension = this.scores.C >= this.scores.S ? 'C' : 'S';
+        // 第一维度: C(枪法刚猛) vs S(老六阴人)
+        const dim1 = this.scores.C >= this.scores.S ? 'C' : 'S';
         
-        // S维度: F(白给送头) vs A(苟活保命)
-        const sDimension = this.scores.F >= this.scores.A ? 'F' : 'A';
+        // 第二维度: F(白给送头) vs A(苟活保命)
+        const dim2 = this.scores.F >= this.scores.A ? 'F' : 'A';
         
-        // T维度: L(孤狼独狼) vs B(团队混子)
-        const tDimension = this.scores.L >= this.scores.B ? 'L' : 'B';
+        // 第三维度: L(孤狼独狼) vs B(团队混子)
+        const dim3 = this.scores.L >= this.scores.B ? 'L' : 'B';
         
-        // I维度: M(战术大脑) vs D(无脑冲锋)
-        const iDimension = this.scores.M >= this.scores.D ? 'M' : 'D';
+        // 第四维度: M(战术大脑) vs D(无脑冲锋)
+        const dim4 = this.scores.M >= this.scores.D ? 'M' : 'D';
         
-        const typeCode = cDimension + sDimension + tDimension + iDimension;
+        const typeCode = dim1 + dim2 + dim3 + dim4;
         
         return {
             code: typeCode,
             dimensions: {
-                C: { C: this.scores.C, S: this.scores.S },
-                S: { F: this.scores.F, A: this.scores.A },
-                T: { L: this.scores.L, B: this.scores.B },
-                I: { M: this.scores.M, D: this.scores.D }
+                dim1: { C: this.scores.C, S: this.scores.S },
+                dim2: { F: this.scores.F, A: this.scores.A },
+                dim3: { L: this.scores.L, B: this.scores.B },
+                dim4: { M: this.scores.M, D: this.scores.D }
             }
         };
     }
@@ -164,10 +163,10 @@ class CSTITest {
         container.innerHTML = '';
         
         const dimData = [
-            { name: 'Combat (战斗风格)', left: 'C - 枪法刚猛', right: 'S - 老六阴人', leftScore: dimensions.C.C, rightScore: dimensions.C.S },
-            { name: 'Survival (生存策略)', left: 'F - 白给送头', right: 'A - 苟活保命', leftScore: dimensions.S.F, rightScore: dimensions.S.A },
-            { name: 'Teamwork (团队风格)', left: 'L - 孤狼独狼', right: 'B - 团队混子', leftScore: dimensions.T.L, rightScore: dimensions.T.B },
-            { name: 'Intellect (思维方式)', left: 'M - 战术大脑', right: 'D - 无脑冲锋', leftScore: dimensions.I.M, rightScore: dimensions.I.D }
+            { name: 'Combat (战斗风格)', left: 'C - 枪法刚猛', right: 'S - 老六阴人', leftScore: dimensions.dim1.C, rightScore: dimensions.dim1.S },
+            { name: 'Survival (生存策略)', left: 'F - 白给送头', right: 'A - 苟活保命', leftScore: dimensions.dim2.F, rightScore: dimensions.dim2.A },
+            { name: 'Teamwork (团队风格)', left: 'L - 孤狼独狼', right: 'B - 团队混子', leftScore: dimensions.dim3.L, rightScore: dimensions.dim3.B },
+            { name: 'Intellect (思维方式)', left: 'M - 战术大脑', right: 'D - 无脑冲锋', leftScore: dimensions.dim4.M, rightScore: dimensions.dim4.D }
         ];
         
         dimData.forEach(dim => {
@@ -196,14 +195,8 @@ class CSTITest {
         const container = document.getElementById('all-types-grid');
         container.innerHTML = '';
         
-        // 显示主要的几种类型
-        const displayTypes = [
-            'CSLM', 'CSLB', 'CSLD', 'CSAM', 'CSAB', 
-            'SSLM', 'SSLD', 'SSAM', 'SSBD',
-            'TSLM', 'TSLB', 'TSAM', 'TSBD',
-            'ISLM', 'ISLB', 'ISAM', 'ISBD',
-            'ILDM', 'ILDB', 'IDAM', 'IDBD'
-        ];
+        // 显示所有可能的类型
+        const displayTypes = Object.keys(personalityTypes);
         
         displayTypes.forEach(typeCode => {
             const typeData = personalityTypes[typeCode];
