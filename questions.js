@@ -218,7 +218,7 @@ const personalityTypes = {
     emoji: "🔥",
     description: "你就是CS界的人形自走炮！RUSH B是你的信仰，干拉是你的日常。你的字典里没有'苟'字，只有'刚'和'更刚'。",
     traits: ["永远在冲锋的路上", "白给也要姿态帅", "敌人眼中的疯狗", "队友眼中的战神", "死斗模式常驻玩家"],
-    famousPlayers: "s1mple（巅峰期）、NiKo",
+    weapons: "AK-47 / M4A4 · AWP · 沙漠之鹰",
     color: "#ff4444"
   },
   "CFLD": {
@@ -226,7 +226,7 @@ const personalityTypes = {
     emoji: "💀",
     description: "思考是什么？能吃吗？你就是CS界的无头苍蝇，但苍蝇多了也能撞大运。你的特点就是头铁！",
     traits: ["从不思考", "头铁就完事了", "白给次数最多", "但偶尔能赢", "快乐游戏代言人"],
-    famousPlayers: "一些路人王",
+    weapons: "P90 · 内格夫 · 双持贝瑞塔",
     color: "#ff6666"
   },
   "CFAM": {
@@ -234,7 +234,7 @@ const personalityTypes = {
     emoji: "🐺",
     description: "你不需要同伴！你是一匹孤狼，来去如风。虽然经常白给，但偶尔也能打出天秀操作，让所有人惊掉下巴。",
     traits: ["独来独往", "偶尔天秀", "经常白给但姿态帅", "有自己的打法节奏", "不喜欢听指挥"],
-    famousPlayers: "ZywOo（路人局）、sh1ro",
+    weapons: "AWP · AUG · 沙漠之鹰",
     color: "#ff8888"
   },
   "CFAD": {
@@ -242,7 +242,7 @@ const personalityTypes = {
     emoji: "🎭",
     description: "你虽然也很莽，但你更会混。跟着大部队冲，躲在后面补枪，你就是那种看似很猛其实在苟的玩家。",
     traits: ["看似很猛其实在混", "补枪第一名", "跟风RUSH", "存活率意外的高", "KDA很好看"],
-    famousPlayers: "某些冠军队伍的成员",
+    weapons: "M4A1-S · MP9 · 手雷",
     color: "#ffaaaa"
   },
   "CALM": {
@@ -250,7 +250,7 @@ const personalityTypes = {
     emoji: "🦊",
     description: "老六的最高境界！你不是在蹲人，就是在去蹲人的路上。你的耐心堪比忍者，你的阴招让对手怀疑人生。",
     traits: ["专业蹲人100年", "地图就是你的棋盘", "敌人永远猜不到你在哪", "耐心堪比忍者", "老六教科书"],
-    famousPlayers: "Jame、某些战术大师",
+    weapons: "SSG 08 ·  silenced M4 · 烟雾弹",
     color: "#44ff44"
   },
   "CALD": {
@@ -258,7 +258,7 @@ const personalityTypes = {
     emoji: "🐢",
     description: "你的生存欲望极强，强到对手都怀疑人生。你就是那种全队在打4v6，而你在角落瑟瑟发抖的玩家。",
     traits: ["全队在打4v6你在苟", "对手都找不到你", "苟到就是赚到", "残局压力山大", "保枪比杀人多"],
-    famousPlayers: "某些防守专家",
+    weapons: "SCAR-20 · G3SG1 · 燃烧瓶",
     color: "#66ff66"
   },
   "CAAM": {
@@ -266,7 +266,7 @@ const personalityTypes = {
     emoji: "👑",
     description: "活着就是胜利！你是CS界的苟王，队友都死光了你还活着。不是因为你强，是因为你太能苟了！",
     traits: ["苟住就是胜利", "队友祭天法力无边", "残局永远在1v多", "保枪小能手", "存活率第一"],
-    famousPlayers: "某些决赛选手",
+    weapons: "AWP · 烟雾弹 · 闪光弹",
     color: "#88ff88"
   },
   "CAAD": {
@@ -274,7 +274,7 @@ const personalityTypes = {
     emoji: "🔮",
     description: "你能预感到哪里有人，但你的反应速度永远慢半拍。你就是那种知道人在哪，但还是被打死的悲剧先知。",
     traits: ["能预判敌人位置", "但反应慢半拍", "悲剧型先知", "死前能报点", "虽死犹荣"],
-    famousPlayers: "一些意识流选手",
+    weapons: "M4A1-S · 烟雾弹 · 燃烧瓶",
     color: "#aaffaa"
   },
   "SFLM": {
@@ -282,7 +282,7 @@ const personalityTypes = {
     emoji: "💪",
     description: "你虽然总是白给，但你的气势 never say die！你就是那种第一个冲出去送，但能让队友知道对面位置的伟大牺牲者。",
     traits: ["开局第一个白给", "但报点很准", "气势不能输", "队友的活体雷达", "虽败犹荣"],
-    famousPlayers: "一些战队的突破手",
+    weapons: "AK-47 · MP7 · 闪光弹",
     color: "#ffaa00"
   },
   "SFLD": {
@@ -290,7 +290,7 @@ const personalityTypes = {
     emoji: "🤪",
     description: "白给界的混子，混子界的白给。你就是那种又菜又爱玩，但队友还舍不得踢的宝藏男孩。",
     traits: ["又菜又爱玩", "队友的开心果", "气氛组组长", "白给也要有仪式感", "娱乐玩家"],
-    famousPlayers: "一些娱乐主播",
+    weapons: "P90 · 烟雾弹 · 诱饵弹",
     color: "#ffcc00"
   },
   "SFAM": {
@@ -298,7 +298,7 @@ const personalityTypes = {
     emoji: "🤝",
     description: "你是团队的突破手，但你的突破方式就是带头冲。兄弟们跟我上！然后...一起白给。",
     traits: ["带头冲锋", "带队友一起白给", "团队气势担当", "虽然莽但有兄弟", "团队型莽夫"],
-    famousPlayers: "某些战队的突破手组合",
+    weapons: "AK-47 · 闪光弹 · 烟雾弹",
     color: "#ffdd00"
   },
   "SFAD": {
@@ -306,7 +306,7 @@ const personalityTypes = {
     emoji: "🎮",
     description: "你在团队里，但你打的像个路人。你不听指挥、不配合，但偶尔能carry。队友又爱又恨。",
     traits: ["在队但像路人", "不听指挥", "偶尔Carry", "个人能力突出", "团队毒瘤"],
-    famousPlayers: "某些天才少年",
+    weapons: "AWP · 沙鹰 · 燃烧瓶",
     color: "#ffee00"
   },
   "SALM": {
@@ -314,7 +314,7 @@ const personalityTypes = {
     emoji: "🧠",
     description: "你是团队的指挥和大脑，掌控全局。但你的队友...有时候真的带不动啊！你就是那种战术大师但队员不执行的痛苦指挥。",
     traits: ["团队指挥", "战术大师", "但队友不听话", "痛苦指挥", "心累但坚持"],
-    famousPlayers: "gla1ve、karrigan",
+    weapons: "M4A4 · 全道具 · 沙漠之鹰",
     color: "#aaff00"
   },
   "SALD": {
@@ -322,7 +322,7 @@ const personalityTypes = {
     emoji: "📝",
     description: "你的理论知识世界第一，但实际操作...你就是那种能讲一堆战术但自己一个都打不出来的理论派。",
     traits: ["理论知识世界第一", "但操作拉胯", "能讲一堆战术", "但一个都打不出", "理论派玩家"],
-    famousPlayers: "一些退役选手/主播",
+    weapons: "FAMAS · GALIL · 燃烧瓶",
     color: "#ccff00"
   },
   "SAAM": {
@@ -330,7 +330,7 @@ const personalityTypes = {
     emoji: "🎪",
     description: "你是团队里最受欢迎的人！因为你虽然不Carry，但你听话、不压力、还能搞气氛。你就是完美的团队拼图！",
     traits: ["听话照做", "不压力队友", "搞气氛第一名", "团队粘合剂", "谁都喜欢"],
-    famousPlayers: "某些队伍的第六人",
+    weapons: "MP5 · 烟雾弹 · 诱饵弹",
     color: "#eeff00"
   },
   "SAAD": {
@@ -338,7 +338,7 @@ const personalityTypes = {
     emoji: "😂",
     description: "你就是来玩玩的！输赢无所谓，快乐最重要。你的笑声回荡在整个服务器，感染每一个人。",
     traits: ["快乐游戏第一", "白给也要笑", "气氛担当", "心态超好", "人见人爱"],
-    famousPlayers: "一些娱乐主播",
+    weapons: "P90 · 双持贝瑞塔 · 诱饵弹",
     color: "#ffff00"
   }
 };

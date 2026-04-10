@@ -192,6 +192,17 @@ class CSTITest {
             traitsList.appendChild(li);
         });
         
+        // 显示推荐武器
+        const weaponsList = document.getElementById('weapons-list');
+        weaponsList.innerHTML = '';
+        const weapons = typeData.weapons.split(' · ').map(w => w.trim());
+        weapons.forEach(weapon => {
+            const div = document.createElement('div');
+            div.className = 'weapon-item';
+            div.textContent = weapon;
+            weaponsList.appendChild(div);
+        });
+        
         // 显示维度分析
         this.displayDimensionBars(result.dimensions);
         
@@ -301,6 +312,8 @@ ${typeData.description}
 
 特点:
 ${typeData.traits.map(t => '• ' + t).join('\n')}
+
+推荐武器: ${typeData.weapons}
 
 来测试你的CS人格类型吧！`;
         
