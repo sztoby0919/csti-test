@@ -211,14 +211,22 @@ class CSTITest {
         
         // 显示推荐武器
         const weaponsList = document.getElementById('weapons-list');
-        weaponsList.innerHTML = '';
-        const weapons = typeData.weapons.split(' · ').map(w => w.trim());
-        weapons.forEach(weapon => {
-            const div = document.createElement('div');
-            div.className = 'weapon-item';
-            div.textContent = weapon;
-            weaponsList.appendChild(div);
-        });
+        if (weaponsList) {
+            weaponsList.innerHTML = '';
+            const weapons = typeData.weapons.split(' · ').map(w => w.trim());
+            weapons.forEach(weapon => {
+                const div = document.createElement('div');
+                div.className = 'weapon-item';
+                div.textContent = weapon;
+                weaponsList.appendChild(div);
+            });
+        }
+        
+        // 显示真实写照
+        const funText = document.getElementById('fun-text');
+        if (funText) {
+            funText.textContent = typeData.fun;
+        }
         
         console.log('显示维度分析...');
         // 显示维度分析
