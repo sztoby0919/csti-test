@@ -1,0 +1,8 @@
+{
+  "name": "csti-test",
+  "version": "1.0.0",
+  "description": "CSTI - CS人格测试（离谱版）",
+  "scripts": {
+    "dev": "npx serve ."
+  }
+}
