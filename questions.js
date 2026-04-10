@@ -218,6 +218,8 @@ const personalityTypes = {
     emoji: "🔥",
     description: "你就是CS界的人形自走炮！RUSH B是你的信仰，干拉是你的日常。你的字典里没有'苟'字，只有'刚'和'更刚'。",
     fun: "开局30秒，你已经白给了，但击杀视角里你甚至拉出了半个身位。",
+    similarPlayer: "donk（Spirit）— 天生就刚，出道即巅峰",
+    idealTeammate: "你需要一个 zont1x 帮你断后和兜底",
     traits: ["永远在冲锋的路上", "白给也要姿态帅", "敌人眼中的疯狗", "队友眼中的战神", "死斗模式常驻玩家"],
     color: "#ff4444"
   },
@@ -225,7 +227,9 @@ const personalityTypes = {
     name: "无脑冲锋",
     emoji: "💀",
     description: "思考是什么？能吃吗？你就是CS界的无头苍蝇，但苍蝇多了也能撞大运。你的特点就是头铁！",
-    fun: "你冲出去才发现对面有5个人，然后你在公屏打字：“对面开了？”",
+    fun: "你冲出去才发现对面有5个人，然后你在公屏打字：对面开了？",
+    similarPlayer: "broky（FaZe）的反面— 你比他还敢干拉，但没他那枪法",
+    idealTeammate: "你需要一个 karrigan 帮你指挥和兜底",
     traits: ["从不思考", "头铁就完事了", "白给次数最多", "但偶尔能赢", "快乐游戏代言人"],
     color: "#ff6666"
   },
@@ -234,6 +238,8 @@ const personalityTypes = {
     emoji: "🐺",
     description: "你不需要同伴！你是一匹孤狼，来去如风。虽然经常白给，但偶尔也能打出天秀操作，让所有人惊掉下巴。",
     fun: "你总是能精准地在队友全死后，完成一波极其华丽的1v4，虽然最后被拆包了。",
+    similarPlayer: "NiKo（G2）— 个人能力拉满，但总是一个人扛着走",
+    idealTeammate: "你需要一个 m0NESY 帮你架点和补枪",
     traits: ["独来独往", "偶尔天秀", "经常白给但姿态帅", "有自己的打法节奏", "不喜欢听指挥"],
     color: "#ff8888"
   },
@@ -242,6 +248,8 @@ const personalityTypes = {
     emoji: "🎭",
     description: "你虽然也很莽，但你更会混。跟着大部队冲，躲在后面补枪，你就是那种看似很猛其实在苟的玩家。",
     fun: "队友死光了你还在，然后你收下了第5个残局人头，KDA瞬间全场第一。",
+    similarPlayer: "rain（FaZe）— 看似很猛，其实很会混",
+    idealTeammate: "你需要一个 ropz 帮你探点和拉枪线",
     traits: ["看似很猛其实在混", "补枪第一名", "跟风RUSH", "存活率意外的高", "KDA很好看"],
     color: "#ffaaaa"
   },
@@ -250,6 +258,8 @@ const personalityTypes = {
     emoji: "🦊",
     description: "老六的最高境界！你不是在蹲人，就是在去蹲人的路上。你的耐心堪比忍者，你的阴招让对手怀疑人生。",
     fun: "你就像一开始蹲在一个地方，本来想偷背身，但是被偷正面了。",
+    similarPlayer: "Jame（VP）— 保枪之王，耐心拉满",
+    idealTeammate: "你需要一个 FL1T 帮你主动出击",
     traits: ["专业蹲人100年", "地图就是你的棋盘", "敌人永远猜不到你在哪", "耐心堪比忍者", "老六教科书"],
     color: "#44ff44"
   },
@@ -258,6 +268,8 @@ const personalityTypes = {
     emoji: "🐢",
     description: "你的生存欲望极强，强到对手都怀疑人生。你就是那种全队在打4v6，而你在角落瑟瑟发抖的玩家。",
     fun: "队友在A点打得天崩地裂，你在B点包点角落里把静步键按出了火星子。",
+    similarPlayer: "nitr0（Liquid）— 苟得住就是胜利",
+    idealTeammate: "你需要一个 EliGE 帮你去拼",
     traits: ["全队在打4v6你在苟", "对手都找不到你", "苟到就是赚到", "残局压力山大", "保枪比杀人多"],
     color: "#66ff66"
   },
@@ -265,7 +277,9 @@ const personalityTypes = {
     name: "苟王之王",
     emoji: "👑",
     description: "活着就是胜利！你是CS界的苟王，队友都死光了你还活着。不是因为你强，是因为你太能苟了！",
-    fun: "队友问你在哪，你说“我在C”，然后发现你在C点最外面的那个只有鬼知道的缝隙里。",
+    fun: "队友问你在哪，你说我在C，然后发现你在C点最外面的那个只有鬼知道的缝隙里。",
+    similarPlayer: "FASHR（ENCE）— 苟到就是赚到",
+    idealTeammate: "你需要一个 Snappi 帮你去送",
     traits: ["苟住就是胜利", "队友祭天法力无边", "残局永远在1v多", "保枪小能手", "存活率第一"],
     color: "#88ff88"
   },
@@ -273,7 +287,9 @@ const personalityTypes = {
     name: "白给先知",
     emoji: "🔮",
     description: "你能预感到哪里有人，但你的反应速度永远慢半拍。你就是那种知道人在哪，但还是被打死的悲剧先知。",
-    fun: "你报点极其精准：“A大两个，A小一个”，然后你被对面A大那个用沙鹰爆头了。",
+    fun: "你报点极其精准：A大两个，A小一个，然后你被对面A大那个用沙鹰爆头了。",
+    similarPlayer: "cadiaN（Heroic）— 指挥很准，但自己先倒了",
+    idealTeammate: "你需要一个 stavn 帮你把你报的点打下来",
     traits: ["能预判敌人位置", "但反应慢半拍", "悲剧型先知", "死前能报点", "虽死犹荣"],
     color: "#aaffaa"
   },
@@ -282,6 +298,8 @@ const personalityTypes = {
     emoji: "💪",
     description: "你虽然总是白给，但你的气势 never say die！你就是那种第一个冲出去送，但能让队友知道对面位置的伟大牺牲者。",
     fun: "你总是第一个死，但你的死非常有价值——因为你死的位置告诉了全队对面5个人都在哪。",
+    similarPlayer: "blameF（Astralis）— 虽然白给，但气势不能输",
+    idealTeammate: "你需要一个 device 帮你架枪和残局",
     traits: ["开局第一个白给", "但报点很准", "气势不能输", "队友的活体雷达", "虽败犹荣"],
     color: "#ffaa00"
   },
@@ -290,6 +308,8 @@ const personalityTypes = {
     emoji: "🤪",
     description: "白给界的混子，混子界的白给。你就是那种又菜又爱玩，但队友还舍不得踢的宝藏男孩。",
     fun: "你整局游戏就在做两件事：扔烟雾弹，然后在烟雾弹里把自己闪白。",
+    similarPlayer: "Magisk（Astralis）— 看着在混，其实也能C",
+    idealTeammate: "你需要一个 gla1ve 帮你安排战术",
     traits: ["又菜又爱玩", "队友的开心果", "气氛组组长", "白给也要有仪式感", "娱乐玩家"],
     color: "#ffcc00"
   },
@@ -298,6 +318,8 @@ const personalityTypes = {
     emoji: "🤝",
     description: "你是团队的突破手，但你的突破方式就是带头冲。兄弟们跟我上！然后...一起白给。",
     fun: "你带头RUSH B，结果发现对面5个都在架枪，然后全队5个人同时倒在包点。",
+    similarPlayer: "Twistzz（Liquid）— 带队冲，然后一起倒",
+    idealTeammate: "你需要一个 NAF 帮你补枪和残局",
     traits: ["带头冲锋", "带队友一起白给", "团队气势担当", "虽然莽但有兄弟", "团队型莽夫"],
     color: "#ffdd00"
   },
@@ -305,7 +327,9 @@ const personalityTypes = {
     name: "团队孤狼",
     emoji: "🎮",
     description: "你在团队里，但你打的像个路人。你不听指挥、不配合，但偶尔能carry。队友又爱又恨。",
-    fun: "指挥在麦里喊了半天战术，你回了一句“别吵”，然后出去干拉拿了个三杀。",
+    fun: "指挥在麦里喊了半天战术，你回了一句别吵，然后出去干拉拿了个三杀。",
+    similarPlayer: "s1mple（NaVi）— 天赋拉满，但谁的话都不听",
+    idealTeammate: "你需要一个 B1ad3 帮你兜底和安排战术",
     traits: ["在队但像路人", "不听指挥", "偶尔Carry", "个人能力突出", "团队毒瘤"],
     color: "#ffee00"
   },
@@ -314,6 +338,8 @@ const personalityTypes = {
     emoji: "🧠",
     description: "你是团队的指挥和大脑，掌控全局。但你的队友...有时候真的带不动啊！你就是那种战术大师但队员不执行的痛苦指挥。",
     fun: "你战术安排得天衣无缝，但队友全在自由发挥，最后你只能痛苦地闭上眼。",
+    similarPlayer: "karrigan（FaZe）— 战术大师，但队友总不听话",
+    idealTeammate: "你需要一个 rain 帮你去执行战术",
     traits: ["团队指挥", "战术大师", "但队友不听话", "痛苦指挥", "心累但坚持"],
     color: "#aaff00"
   },
@@ -322,6 +348,8 @@ const personalityTypes = {
     emoji: "📝",
     description: "你的理论知识世界第一，但实际操作...你就是那种能讲一堆战术但自己一个都打不出来的理论派。",
     fun: "你能把职业选手的战术复盘讲得头头是道，但自己一上号就被人家用P90 RUSH了。",
+    similarPlayer: "某些退役选手转型主播— 理论知识拉满，但手跟不上了",
+    idealTeammate: "你需要一个年轻枪男帮你去打",
     traits: ["理论知识世界第一", "但操作拉胯", "能讲一堆战术", "但一个都打不出", "理论派玩家"],
     color: "#ccff00"
   },
@@ -329,7 +357,9 @@ const personalityTypes = {
     name: "团队混子",
     emoji: "🎪",
     description: "你是团队里最受欢迎的人！因为你虽然不Carry，但你听话、不压力、还能搞气氛。你就是完美的团队拼图！",
-    fun: "你整局游戏就干了三件事：发“Nice！”、扔烟雾弹掩护队友、然后在公屏扣“666”。",
+    fun: "你整局游戏就干了三件事：发Nice！、扔烟雾弹掩护队友、然后在公屏扣666。",
+    similarPlayer: "chopper（NaVi）— 气氛组组长，谁都喜欢",
+    idealTeammate: "你需要一个 s1mple 帮你Carry",
     traits: ["听话照做", "不压力队友", "搞气氛第一名", "团队粘合剂", "谁都喜欢"],
     color: "#eeff00"
   },
@@ -338,6 +368,8 @@ const personalityTypes = {
     emoji: "😂",
     description: "你就是来玩玩的！输赢无所谓，快乐最重要。你的笑声回荡在整个服务器，感染每一个人。",
     fun: "你拿着一把P90冲出去送人头，死后在语音里笑得像刚中了彩票。",
+    similarPlayer: "一些娱乐主播— 快乐就完事了",
+    idealTeammate: "你需要一个认真打的朋友带你赢",
     traits: ["快乐游戏第一", "白给也要笑", "气氛担当", "心态超好", "人见人爱"],
     color: "#ffff00"
   }
