@@ -397,33 +397,6 @@ body {
     font-style: italic;
 }
 
-/* 职业选手 */
-.cs-players {
-    margin-top: 28px;
-    padding-top: 28px;
-    border-top: 1px solid #1f2937;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-.player-section h3 {
-    font-size: 16px;
-    margin-bottom: 12px;
-    font-weight: 700;
-    color: #3b82f6;
-}
-
-.player-card {
-    background: #1f2937;
-    padding: 16px;
-    border-radius: 10px;
-    font-size: 15px;
-    line-height: 1.6;
-    color: #e0e0e0;
-    border: 1px solid #374151;
-}
-
 /* 按钮区域 */
 .result-actions {
     text-align: center;

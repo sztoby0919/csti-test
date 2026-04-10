@@ -215,18 +215,6 @@ class CSTITest {
             funText.textContent = typeData.fun;
         }
         
-        // 显示相似选手
-        const similarPlayer = document.getElementById('similar-player');
-        if (similarPlayer && typeData.similarPlayer) {
-            similarPlayer.textContent = typeData.similarPlayer;
-        }
-        
-        // 显示最佳搭档
-        const idealTeammate = document.getElementById('ideal-teammate');
-        if (idealTeammate && typeData.idealTeammate) {
-            idealTeammate.textContent = typeData.idealTeammate;
-        }
-        
         console.log('显示维度分析...');
         // 显示维度分析
         this.displayDimensionBars(result.dimensions);
