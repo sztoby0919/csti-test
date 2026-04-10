@@ -112,6 +112,9 @@ class CSTITest {
         
         const typeCode = dim1 + dim2 + dim3 + dim4;
         
+        // 计算与所有类型的相似度
+        const similarities = this.calculateSimilarities();
+        
         return {
             code: typeCode,
             dimensions: {
@@ -119,16 +122,57 @@ class CSTITest {
                 dim2: { F: this.scores.F, A: this.scores.A },
                 dim3: { L: this.scores.L, B: this.scores.B },
                 dim4: { M: this.scores.M, D: this.scores.D }
-            }
+            },
+            similarities: similarities
         };
     }
+    
+    // 计算与所有类型的相似度
+    calculateSimilarities() {
+        const allTypes = Object.keys(personalityTypes);
+        const similarities = [];
+        
+        allTypes.forEach(typeCode => {
+            // 计算4个字符中有多少个匹配
+            let matchCount = 0;
+            if (typeCode[0] === this.getDim1()) matchCount++;
+            if (typeCode[1] === this.getDim2()) matchCount++;
+            if (typeCode[2] === this.getDim3()) matchCount++;
+            if (typeCode[3] === this.getDim4()) matchCount++;
+            
+            const similarity = Math.round((matchCount / 4) * 100);
+            similarities.push({
+                code: typeCode,
+                similarity: similarity,
+                data: personalityTypes[typeCode]
+            });
+        });
+        
+        // 按相似度排序
+        similarities.sort((a, b) => b.similarity - a.similarity);
+        
+        return similarities;
+    }
+    
+    getDim1() { return this.scores.C >= this.scores.S ? 'C' : 'S'; }
+    getDim2() { return this.scores.F >= this.scores.A ? 'F' : 'A'; }
+    getDim3() { return this.scores.L >= this.scores.B ? 'L' : 'B'; }
+    getDim4() { return this.scores.M >= this.scores.D ? 'M' : 'D'; }
 
     showResult() {
         const result = this.calculateResult();
-        const typeData = personalityTypes[result.code];
+        console.log('计算结果:', result);
+        console.log('类型代码:', result.code);
+        console.log('相似度列表:', result.similarities);
         
+        const typeData = personalityTypes[result.code];
+
         if (!typeData) {
             console.error('未找到类型数据:', result.code);
+            console.log('所有可用的类型:', Object.keys(personalityTypes));
+            // 如果找不到，显示一个默认提示
+            alert('测试出现异常，类型代码: ' + result.code + '，请重新测试');
+            this.retakeTest();
             return;
         }
         
@@ -151,11 +195,43 @@ class CSTITest {
         // 显示维度分析
         this.displayDimensionBars(result.dimensions);
         
+        // 显示相似度分析
+        this.displaySimilarities(result.similarities, result.code);
+        
         // 显示所有类型
         this.displayAllTypes(result.code);
         
         // 切换到结果页
         this.showPage('result-page');
+    }
+    
+    displaySimilarities(similarities, resultCode) {
+        const container = document.getElementById('similarities-container');
+        if (!container) return;
+        
+        container.innerHTML = '';
+        
+        // 显示前5个最相似的类型
+        const top5 = similarities.slice(0, 5);
+        
+        top5.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'similarity-item' + (item.code === resultCode ? ' is-result' : '');
+            
+            const similarityPercent = item.similarity;
+            const barWidth = similarityPercent + '%';
+            
+            div.innerHTML = `
+                <div class="similarity-header">
+                    <span class="similarity-code">${item.data.emoji} ${item.code} - ${item.data.name}</span>
+                    <span class="similarity-percent">${similarityPercent}%</span>
+                </div>
+                <div class="similarity-bar-container">
+                    <div class="similarity-bar" style="width: ${barWidth}; background: ${item.data.color};"></div>
+                </div>
+            `;
+            container.appendChild(div);
+        });
     }
 
     displayDimensionBars(dimensions) {

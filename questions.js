@@ -207,9 +207,13 @@ const questions = [
   }
 ];
 
-// 16种离谱人格类型
+// 16种离谱人格类型 (对应4个维度各2个选项的所有组合)
+// dim1: C(枪法刚猛) vs S(老六阴人)
+// dim2: F(白给送头) vs A(苟活保命)
+// dim3: L(孤狼独狼) vs B(团队混子)
+// dim4: M(战术大脑) vs D(无脑冲锋)
 const personalityTypes = {
-  "CSLM": {
+  "CFLM": {
     name: "莽夫战神",
     emoji: "🔥",
     description: "你就是CS界的人形自走炮！RUSH B是你的信仰，干拉是你的日常。你的字典里没有'苟'字，只有'刚'和'更刚'。",
@@ -217,53 +221,21 @@ const personalityTypes = {
     famousPlayers: "s1mple（巅峰期）、NiKo",
     color: "#ff4444"
   },
-  "CSLB": {
-    name: "独狼刺客",
-    emoji: "🐺",
-    description: "你不需要同伴！你是一匹孤狼，来去如风。虽然经常白给，但偶尔也能打出天秀操作，让所有人惊掉下巴。",
-    traits: ["独来独往", "偶尔天秀", "经常白给但姿态帅", "有自己的打法节奏", "不喜欢听指挥"],
-    famousPlayers: "ZywOo（路人局）、sh1ro",
-    color: "#ff6666"
-  },
-  "CSFM": {
-    name: "白给先知",
-    emoji: "🔮",
-    description: "你能预感到哪里有人，但你的反应速度永远慢半拍。你就是那种知道人在哪，但还是被打死的悲剧先知。",
-    traits: ["能预判敌人位置", "但反应慢半拍", "悲剧型先知", "死前能报点", "虽死犹荣"],
-    famousPlayers: "一些意识流选手",
-    color: "#ff8888"
-  },
-  "CSFD": {
+  "CFLD": {
     name: "无脑冲锋",
     emoji: "💀",
     description: "思考是什么？能吃吗？你就是CS界的无头苍蝇，但苍蝇多了也能撞大运。你的特点就是头铁！",
     traits: ["从不思考", "头铁就完事了", "白给次数最多", "但偶尔能赢", "快乐游戏代言人"],
     famousPlayers: "一些路人王",
-    color: "#ffaaaa"
+    color: "#ff6666"
   },
-  "CSAM": {
-    name: "战术老六",
-    emoji: "🦊",
-    description: "老六的最高境界！你不是在蹲人，就是在去蹲人的路上。你的耐心堪比忍者，你的阴招让对手怀疑人生。",
-    traits: ["专业蹲人100年", "地图就是你的棋盘", "敌人永远猜不到你在哪", "耐心堪比忍者", "老六教科书"],
-    famousPlayers: "Jame、某些战术大师",
-    color: "#44ff44"
-  },
-  "CSAB": {
-    name: "苟王之王",
-    emoji: "👑",
-    description: "活着就是胜利！你是CS界的苟王，队友都死光了你还活着。不是因为你强，是因为你太能苟了！",
-    traits: ["苟住就是胜利", "队友祭天法力无边", "残局永远在1v多", "保枪小能手", "存活率第一"],
-    famousPlayers: "某些决赛选手",
-    color: "#66ff66"
-  },
-  "CFAA": {
-    name: "苟且偷生",
-    emoji: "🐢",
-    description: "你的生存欲望极强，强到对手都怀疑人生。你就是那种全队在打4v6，而你在角落瑟瑟发抖的玩家。",
-    traits: ["全队在打4v6你在苟", "对手都找不到你", "苟到就是赚到", "残局压力山大", "保枪比杀人多"],
-    famousPlayers: "某些防守专家",
-    color: "#aaff00"
+  "CFAM": {
+    name: "独狼刺客",
+    emoji: "🐺",
+    description: "你不需要同伴！你是一匹孤狼，来去如风。虽然经常白给，但偶尔也能打出天秀操作，让所有人惊掉下巴。",
+    traits: ["独来独往", "偶尔天秀", "经常白给但姿态帅", "有自己的打法节奏", "不喜欢听指挥"],
+    famousPlayers: "ZywOo（路人局）、sh1ro",
+    color: "#ff8888"
   },
   "CFAD": {
     name: "莽夫混子",
@@ -271,7 +243,39 @@ const personalityTypes = {
     description: "你虽然也很莽，但你更会混。跟着大部队冲，躲在后面补枪，你就是那种看似很猛其实在苟的玩家。",
     traits: ["看似很猛其实在混", "补枪第一名", "跟风RUSH", "存活率意外的高", "KDA很好看"],
     famousPlayers: "某些冠军队伍的成员",
-    color: "#ccff00"
+    color: "#ffaaaa"
+  },
+  "CALM": {
+    name: "战术老六",
+    emoji: "🦊",
+    description: "老六的最高境界！你不是在蹲人，就是在去蹲人的路上。你的耐心堪比忍者，你的阴招让对手怀疑人生。",
+    traits: ["专业蹲人100年", "地图就是你的棋盘", "敌人永远猜不到你在哪", "耐心堪比忍者", "老六教科书"],
+    famousPlayers: "Jame、某些战术大师",
+    color: "#44ff44"
+  },
+  "CALD": {
+    name: "苟且偷生",
+    emoji: "🐢",
+    description: "你的生存欲望极强，强到对手都怀疑人生。你就是那种全队在打4v6，而你在角落瑟瑟发抖的玩家。",
+    traits: ["全队在打4v6你在苟", "对手都找不到你", "苟到就是赚到", "残局压力山大", "保枪比杀人多"],
+    famousPlayers: "某些防守专家",
+    color: "#66ff66"
+  },
+  "CAAM": {
+    name: "苟王之王",
+    emoji: "👑",
+    description: "活着就是胜利！你是CS界的苟王，队友都死光了你还活着。不是因为你强，是因为你太能苟了！",
+    traits: ["苟住就是胜利", "队友祭天法力无边", "残局永远在1v多", "保枪小能手", "存活率第一"],
+    famousPlayers: "某些决赛选手",
+    color: "#88ff88"
+  },
+  "CAAD": {
+    name: "白给先知",
+    emoji: "🔮",
+    description: "你能预感到哪里有人，但你的反应速度永远慢半拍。你就是那种知道人在哪，但还是被打死的悲剧先知。",
+    traits: ["能预判敌人位置", "但反应慢半拍", "悲剧型先知", "死前能报点", "虽死犹荣"],
+    famousPlayers: "一些意识流选手",
+    color: "#aaffaa"
   },
   "SFLM": {
     name: "白给战神",
@@ -281,7 +285,7 @@ const personalityTypes = {
     famousPlayers: "一些战队的突破手",
     color: "#ffaa00"
   },
-  "SFLB": {
+  "SFLD": {
     name: "白给混子",
     emoji: "🤪",
     description: "白给界的混子，混子界的白给。你就是那种又菜又爱玩，但队友还舍不得踢的宝藏男孩。",
@@ -295,7 +299,7 @@ const personalityTypes = {
     description: "你是团队的突破手，但你的突破方式就是带头冲。兄弟们跟我上！然后...一起白给。",
     traits: ["带头冲锋", "带队友一起白给", "团队气势担当", "虽然莽但有兄弟", "团队型莽夫"],
     famousPlayers: "某些战队的突破手组合",
-    color: "#00aaff"
+    color: "#ffdd00"
   },
   "SFAD": {
     name: "团队孤狼",
@@ -303,86 +307,38 @@ const personalityTypes = {
     description: "你在团队里，但你打的像个路人。你不听指挥、不配合，但偶尔能carry。队友又爱又恨。",
     traits: ["在队但像路人", "不听指挥", "偶尔Carry", "个人能力突出", "团队毒瘤"],
     famousPlayers: "某些天才少年",
-    color: "#0088ff"
+    color: "#ffee00"
   },
-  "SAAM": {
+  "SALM": {
     name: "团队大脑",
     emoji: "🧠",
     description: "你是团队的指挥和大脑，掌控全局。但你的队友...有时候真的带不动啊！你就是那种战术大师但队员不执行的痛苦指挥。",
     traits: ["团队指挥", "战术大师", "但队友不听话", "痛苦指挥", "心累但坚持"],
     famousPlayers: "gla1ve、karrigan",
-    color: "#0066ff"
+    color: "#aaff00"
   },
-  "SAAB": {
-    name: "团队混子",
-    emoji: "🎪",
-    description: "你是团队里最受欢迎的人！因为你虽然不Carry，但你听话、不压力、还能搞气氛。你就是完美的团队拼图！",
-    traits: ["听话照做", "不压力队友", "搞气氛第一名", "团队粘合剂", "谁都喜欢"],
-    famousPlayers: "某些队伍的第六人",
-    color: "#0044ff"
-  },
-  "AALM": {
-    name: "直觉莽夫",
-    emoji: "⚡",
-    description: "你的直觉准得离谱，但你的枪法配不上你的直觉。你就是那种能猜到人在哪，但就是打不中的天选之子。",
-    traits: ["直觉准得离谱", "但枪法配不上", "意识流莽夫", "差一点就C了", "天选之子"],
-    famousPlayers: "一些直觉型选手",
-    color: "#ff00ff"
-  },
-  "AALB": {
-    name: "直觉混子",
-    emoji: "🌟",
-    description: "你有很好的直觉，但你选择当个混子。你知道人在哪，但你让队友去处理。你就是那种有实力但选择躺的玩家。",
-    traits: ["有直觉但选择躺", "知道人在但不去", "让队友处理", "有实力的混子", "躺得明明白白"],
-    famousPlayers: "某些老将",
-    color: "#ff44ff"
-  },
-  "AAAM": {
-    name: "战术大师",
-    emoji: "♟️",
-    description: "你就是CS界的诸葛亮！分析、战术、预判，你样样精通。你就是那种能让对手怀疑人生的战术鬼才。",
-    traits: ["CS界诸葛亮", "分析战术预判全能", "战术鬼才", "掌控全场节奏", "真正的指挥"],
-    famousPlayers: "gla1ve巅峰期、karrigan",
-    color: "#ff88ff"
-  },
-  "AAAD": {
-    name: "分析混子",
-    emoji: "🤓",
-    description: "你能分析出对面所有战术，但你的应对方式是...苟在角落看戏。你就是那种看得透但选择不参与的高人。",
-    traits: ["能分析所有战术", "但选择看戏", "看透不说透", "高人风范", "苟得明明白白"],
-    famousPlayers: "一些老将",
-    color: "#ffaaff"
-  },
-  "DDLM": {
-    name: "分析莽夫",
-    emoji: "📊",
-    description: "你会分析所有数据，但你的结论永远是：RUSH B！你就是那种用科学方法证明应该干拉的分析鬼才。",
-    traits: ["分析数据后得出结论：干拉", "科学莽夫", "有理有据地白给", "分析型莽夫", "学术型RUSH"],
-    famousPlayers: "一些数据分析师转型",
-    color: "#ffdd00"
-  },
-  "DDLD": {
+  "SALD": {
     name: "纸上谈兵",
     emoji: "📝",
     description: "你的理论知识世界第一，但实际操作...你就是那种能讲一堆战术但自己一个都打不出来的理论派。",
     traits: ["理论知识世界第一", "但操作拉胯", "能讲一堆战术", "但一个都打不出", "理论派玩家"],
     famousPlayers: "一些退役选手/主播",
-    color: "#ffee00"
+    color: "#ccff00"
   },
-  "DDAM": {
-    name: "直觉战术",
-    emoji: "✨",
-    description: "你的直觉和战术完美结合，你就是那种既能猜到人又能打死人的恐怖存在。对手眼里的挂哥。",
-    traits: ["直觉+战术完美结合", "既能猜到又能打死", "对手眼里的挂哥", "意识流天花板", "恐怖如斯"],
-    famousPlayers: "s1mple、ZywOo",
-    color: "#ffff00"
+  "SAAM": {
+    name: "团队混子",
+    emoji: "🎪",
+    description: "你是团队里最受欢迎的人！因为你虽然不Carry，但你听话、不压力、还能搞气氛。你就是完美的团队拼图！",
+    traits: ["听话照做", "不压力队友", "搞气氛第一名", "团队粘合剂", "谁都喜欢"],
+    famousPlayers: "某些队伍的第六人",
+    color: "#eeff00"
   },
-  "DDAD": {
+  "SAAD": {
     name: "快乐白给",
     emoji: "😂",
     description: "你就是来玩玩的！输赢无所谓，快乐最重要。你的笑声回荡在整个服务器，感染每一个人。",
     traits: ["快乐游戏第一", "白给也要笑", "气氛担当", "心态超好", "人见人爱"],
     famousPlayers: "一些娱乐主播",
-    color: "#ffff44"
+    color: "#ffff00"
   }
 };

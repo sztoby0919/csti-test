@@ -342,6 +342,63 @@ body {
     text-align: center;
 }
 
+/* 相似度分析样式 */
+.similarities {
+    margin-top: 30px;
+}
+
+.similarities h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #4ecdc4;
+}
+
+.similarity-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.similarity-item.is-result {
+    border: 2px solid #4ecdc4;
+    background: rgba(78, 205, 196, 0.1);
+    box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
+}
+
+.similarity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.similarity-code {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.similarity-percent {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4ecdc4;
+}
+
+.similarity-bar-container {
+    width: 100%;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.similarity-bar {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 1s ease;
+}
+
 .result-actions {
     text-align: center;
     margin: 30px 0;
