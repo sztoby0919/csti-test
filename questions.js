@@ -229,7 +229,7 @@ const personalityTypes = {
     weapons: "P90 · 内格夫 · 双持贝瑞塔",
     color: "#ff6666"
   },
-  "CFAM": {
+  "CFBM": {
     name: "独狼刺客",
     emoji: "🐺",
     description: "你不需要同伴！你是一匹孤狼，来去如风。虽然经常白给，但偶尔也能打出天秀操作，让所有人惊掉下巴。",
@@ -237,7 +237,7 @@ const personalityTypes = {
     weapons: "AWP · AUG · 沙漠之鹰",
     color: "#ff8888"
   },
-  "CFAD": {
+  "CFBD": {
     name: "莽夫混子",
     emoji: "🎭",
     description: "你虽然也很莽，但你更会混。跟着大部队冲，躲在后面补枪，你就是那种看似很猛其实在苟的玩家。",
@@ -250,7 +250,7 @@ const personalityTypes = {
     emoji: "🦊",
     description: "老六的最高境界！你不是在蹲人，就是在去蹲人的路上。你的耐心堪比忍者，你的阴招让对手怀疑人生。",
     traits: ["专业蹲人100年", "地图就是你的棋盘", "敌人永远猜不到你在哪", "耐心堪比忍者", "老六教科书"],
-    weapons: "SSG 08 ·  silenced M4 · 烟雾弹",
+    weapons: "SSG 08 · silenced M4 · 烟雾弹",
     color: "#44ff44"
   },
   "CALD": {
@@ -261,7 +261,7 @@ const personalityTypes = {
     weapons: "SCAR-20 · G3SG1 · 燃烧瓶",
     color: "#66ff66"
   },
-  "CAAM": {
+  "CABM": {
     name: "苟王之王",
     emoji: "👑",
     description: "活着就是胜利！你是CS界的苟王，队友都死光了你还活着。不是因为你强，是因为你太能苟了！",
@@ -269,7 +269,7 @@ const personalityTypes = {
     weapons: "AWP · 烟雾弹 · 闪光弹",
     color: "#88ff88"
   },
-  "CAAD": {
+  "CABD": {
     name: "白给先知",
     emoji: "🔮",
     description: "你能预感到哪里有人，但你的反应速度永远慢半拍。你就是那种知道人在哪，但还是被打死的悲剧先知。",
@@ -293,7 +293,7 @@ const personalityTypes = {
     weapons: "P90 · 烟雾弹 · 诱饵弹",
     color: "#ffcc00"
   },
-  "SFAM": {
+  "SFBM": {
     name: "团队莽夫",
     emoji: "🤝",
     description: "你是团队的突破手，但你的突破方式就是带头冲。兄弟们跟我上！然后...一起白给。",
@@ -301,7 +301,7 @@ const personalityTypes = {
     weapons: "AK-47 · 闪光弹 · 烟雾弹",
     color: "#ffdd00"
   },
-  "SFAD": {
+  "SFBD": {
     name: "团队孤狼",
     emoji: "🎮",
     description: "你在团队里，但你打的像个路人。你不听指挥、不配合，但偶尔能carry。队友又爱又恨。",
@@ -325,7 +325,7 @@ const personalityTypes = {
     weapons: "FAMAS · GALIL · 燃烧瓶",
     color: "#ccff00"
   },
-  "SAAM": {
+  "SABM": {
     name: "团队混子",
     emoji: "🎪",
     description: "你是团队里最受欢迎的人！因为你虽然不Carry，但你听话、不压力、还能搞气氛。你就是完美的团队拼图！",
@@ -333,7 +333,7 @@ const personalityTypes = {
     weapons: "MP5 · 烟雾弹 · 诱饵弹",
     color: "#eeff00"
   },
-  "SAAD": {
+  "SABD": {
     name: "快乐白给",
     emoji: "😂",
     description: "你就是来玩玩的！输赢无所谓，快乐最重要。你的笑声回荡在整个服务器，感染每一个人。",

@@ -78,6 +78,8 @@ class CSTITest {
     }
 
     selectOption(option) {
+        console.log('选择题目:', this.currentQuestion + 1, '选项维度:', option.dimension);
+        
         // 记录分数
         this.scores[option.dimension] += option.value;
         this.answers.push({
@@ -85,18 +87,27 @@ class CSTITest {
             dimension: option.dimension,
             value: option.value
         });
-        
+
         // 下一题
         this.currentQuestion++;
-        
+        console.log('当前题目进度:', this.currentQuestion, '/', questions.length);
+
         if (this.currentQuestion < questions.length) {
             this.displayQuestion();
         } else {
-            this.showResult();
+            console.log('所有题目完成，准备显示结果');
+            try {
+                this.showResult();
+            } catch (error) {
+                console.error('显示结果时出错:', error);
+                alert('显示结果时出错：' + error.message + '\n请刷新页面重试');
+            }
         }
     }
 
     calculateResult() {
+        console.log('开始计算结果，当前分数:', JSON.stringify(this.scores));
+        
         // 计算四个维度的结果
         // 第一维度: C(枪法刚猛) vs S(老六阴人)
         const dim1 = this.scores.C >= this.scores.S ? 'C' : 'S';
@@ -111,6 +122,8 @@ class CSTITest {
         const dim4 = this.scores.M >= this.scores.D ? 'M' : 'D';
         
         const typeCode = dim1 + dim2 + dim3 + dim4;
+        console.log('四个维度结果:', dim1, dim2, dim3, dim4);
+        console.log('最终类型代码:', typeCode);
         
         // 计算与所有类型的相似度
         const similarities = this.calculateSimilarities();
@@ -160,28 +173,32 @@ class CSTITest {
     getDim4() { return this.scores.M >= this.scores.D ? 'M' : 'D'; }
 
     showResult() {
+        console.log('=== showResult 开始执行 ===');
+        console.log('personalityTypes 是否存在:', typeof personalityTypes);
+        console.log('personalityTypes 的键:', Object.keys(personalityTypes));
+        
         const result = this.calculateResult();
         console.log('计算结果:', result);
         console.log('类型代码:', result.code);
-        console.log('相似度列表:', result.similarities);
         
         const typeData = personalityTypes[result.code];
+        console.log('找到的类型数据:', typeData);
 
         if (!typeData) {
             console.error('未找到类型数据:', result.code);
             console.log('所有可用的类型:', Object.keys(personalityTypes));
-            // 如果找不到，显示一个默认提示
             alert('测试出现异常，类型代码: ' + result.code + '，请重新测试');
             this.retakeTest();
             return;
         }
+        
+        console.log('开始填充结果页面...');
         
         // 显示结果类型
         document.getElementById('result-type').textContent = result.code;
         document.getElementById('result-type').style.color = typeData.color;
         document.getElementById('result-name').textContent = typeData.emoji + ' ' + typeData.name;
         document.getElementById('type-description').textContent = typeData.description;
-        document.getElementById('famous-players-text').textContent = typeData.famousPlayers;
         
         // 显示特点列表
         const traitsList = document.getElementById('traits-list');
@@ -203,17 +220,18 @@ class CSTITest {
             weaponsList.appendChild(div);
         });
         
+        console.log('显示维度分析...');
         // 显示维度分析
         this.displayDimensionBars(result.dimensions);
         
+        console.log('显示相似度分析...');
         // 显示相似度分析
         this.displaySimilarities(result.similarities, result.code);
         
-        // 显示所有类型
-        this.displayAllTypes(result.code);
-        
+        console.log('切换到结果页...');
         // 切换到结果页
         this.showPage('result-page');
+        console.log('=== showResult 执行完成 ===');
     }
     
     displaySimilarities(similarities, resultCode) {
@@ -248,18 +266,18 @@ class CSTITest {
     displayDimensionBars(dimensions) {
         const container = document.getElementById('dimension-bars');
         container.innerHTML = '';
-        
+
         const dimData = [
             { name: 'Combat (战斗风格)', left: 'C - 枪法刚猛', right: 'S - 老六阴人', leftScore: dimensions.dim1.C, rightScore: dimensions.dim1.S },
             { name: 'Survival (生存策略)', left: 'F - 白给送头', right: 'A - 苟活保命', leftScore: dimensions.dim2.F, rightScore: dimensions.dim2.A },
             { name: 'Teamwork (团队风格)', left: 'L - 孤狼独狼', right: 'B - 团队混子', leftScore: dimensions.dim3.L, rightScore: dimensions.dim3.B },
             { name: 'Intellect (思维方式)', left: 'M - 战术大脑', right: 'D - 无脑冲锋', leftScore: dimensions.dim4.M, rightScore: dimensions.dim4.D }
         ];
-        
+
         dimData.forEach(dim => {
             const total = dim.leftScore + dim.rightScore;
             const leftPercent = total > 0 ? (dim.leftScore / total) * 100 : 50;
-            
+
             const barDiv = document.createElement('div');
             barDiv.className = 'dimension-bar';
             barDiv.innerHTML = `
@@ -275,28 +293,6 @@ class CSTITest {
                 </div>
             `;
             container.appendChild(barDiv);
-        });
-    }
-
-    displayAllTypes(resultCode) {
-        const container = document.getElementById('all-types-grid');
-        container.innerHTML = '';
-        
-        // 显示所有可能的类型
-        const displayTypes = Object.keys(personalityTypes);
-        
-        displayTypes.forEach(typeCode => {
-            const typeData = personalityTypes[typeCode];
-            if (!typeData) return;
-            
-            const card = document.createElement('div');
-            card.className = 'type-card' + (typeCode === resultCode ? ' is-result' : '');
-            card.innerHTML = `
-                <div class="type-emoji">${typeData.emoji}</div>
-                <div class="type-code">${typeCode}</div>
-                <div class="type-name">${typeData.name}</div>
-            `;
-            container.appendChild(card);
         });
     }
 
